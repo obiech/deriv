@@ -10,6 +10,7 @@ class Price {
   }
 
   factory Price.fromMap(Map<String, dynamic> map) {
+    
     return Price(
       id: map['id'],
       ask: map['ask'],

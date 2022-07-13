@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:deriv/domain/models/market_symbol.dart';
 import 'package:deriv/domain/models/price.dart';
@@ -19,6 +20,7 @@ class PriceTrackerModel with _$PriceTrackerModel {
   const factory PriceTrackerModel.cancel() = _Cancel;
 
   factory PriceTrackerModel.fromCode(Map<String, dynamic> map) {
+    log(map.toString());
     switch (map['msg_type']) {
       case 'forget':
         return const PriceTrackerModel.cancel();

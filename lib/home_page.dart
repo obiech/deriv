@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           listenWhen: (previous, current) =>
               current.status == AppStatus.success,
           listener: (context, state) {
+            availableSymbols = [];
             availableSymbols = [
               ...[
                 for (MarketSymbol symbol in state.symbol ?? [])
@@ -61,6 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     items: items,
                     onChanged: (_) {
                       value = _;
+            selectedSymbol = null;
+
                       if (value != null && (value?.isNotEmpty ?? false)) {
                         context
                             .read<PriceTrackerBloc>()
