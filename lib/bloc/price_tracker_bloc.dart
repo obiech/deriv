@@ -68,6 +68,8 @@ class PriceTrackerBloc extends Bloc<PriceTrackerEvent, PriceTrackerState> {
               tick: ((price) {
                 final askColor = price.ask.getColor(previousAskPrice);
                 final bidColor = price.bid.getColor(previousBidPrice);
+
+                // Update Ask and Bid price
                 previousAskPrice = price.ask;
                 previousBidPrice = price.bid;
                 return state.copyWith(
